@@ -5,7 +5,6 @@ import java.util.Stack;
 
 
 class BinaryTree {
-
     //private static Node root;
     Node root;
 
