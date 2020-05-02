@@ -68,7 +68,6 @@ class BinaryTree {
             //Node right = poll.right;
             //Node left = poll.left;
 
-
             if (poll.left != null) {
                 q.add(poll.left);
             }
@@ -336,7 +335,7 @@ class BinaryTree {
 
             if (queue.peek() == null && queue.size() == 1) {
                 //return count;
-                System.out.println("Break Occured!");
+                System.out.println("Break Occurred because only null remained in the queue!");
                 break;
             }
 

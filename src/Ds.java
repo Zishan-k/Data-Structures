@@ -13,7 +13,7 @@ public class Ds {
    static String s ="";
     private static void combination(int n) {
         if(n < 1) {
-            return;
+            return;//tells to go back to its previous values stored in stack by recursion calls : BackTracking
         }
 
         for(int i = 1; i< c.length ; i++) {

@@ -1,16 +1,10 @@
-public class Node implements Comparable<Node> {
+public class Node {
 
     int item;
-    Node left, right;
+    Node left, right, nextRight;
 
-    Node(int data){
-        item=data;
-        left=null;
-        right=null;
-    }
-
-    @Override
-    public int compareTo(Node o) {
-        return 0;
+    Node(int data) {
+        item = data;
+        left = right = nextRight = null;
     }
 }

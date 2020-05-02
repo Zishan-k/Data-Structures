@@ -8,7 +8,7 @@ class ListNode {
         this.data = data;
     }
 }
-public class LinkedList {
+public class LinkedList<N> {
 
     void insert(ListNode head, int data) {
         ListNode listNode1 = head;
@@ -86,7 +86,7 @@ public class LinkedList {
     ListNode head;
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList<Node> list = new LinkedList<Node>();
         ListNode head = new ListNode(1, null);
         list.insert(head, 2);
         list.insert(head, 3);
