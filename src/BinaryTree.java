@@ -418,7 +418,7 @@ class BinaryTree {
 
 
     void numberOfFullNodes(Node node) {
-        Queue<Node> q = new LinkedList<>(); //LinkedList class is implementing Queue interface
+        Queue<Node> q = new LinkedList<>(); //LinkedList.java class is implementing Queue interface
         q.offer(node);
         int count = 0;
         while (!q.isEmpty()) {

@@ -1,3 +1,5 @@
+package arrays;
+
 public class ArraysPS { //PS= Problem Solving
     void rotateArray(int[] arr, int d){
         int temp;
