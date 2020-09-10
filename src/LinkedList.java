@@ -1,13 +1,3 @@
-class ListNode {
-    public ListNode prev = null;
-    ListNode next;
-    int data;
-
-    public ListNode(int data,ListNode next) {
-        this.next = next;
-        this.data = data;
-    }
-}
 public class LinkedList<N> {
 
     void insert(ListNode head, int data) {
@@ -18,12 +8,10 @@ public class LinkedList<N> {
         listNode1.next = new ListNode(data, null);
     }
 
-
     void print(ListNode listNode) {
         if (listNode == null) {
             return;
         }
-
         System.out.print(listNode.data);
         print(listNode.next);
     }
@@ -42,8 +30,6 @@ public class LinkedList<N> {
            next = next.next;
            }
        current.next = prev;
-
-
         print(current);
     }
 
@@ -60,15 +46,12 @@ public class LinkedList<N> {
                 current.next.data = current.data;
                 current = current.next.next;
 
-
                 /*current.next = prev;
                 prev.next = next;
                 current = prev.next;
                 next = current.next;*/
 
             }
-
-
         print(current);
     }
 
@@ -83,7 +66,14 @@ public class LinkedList<N> {
             System.out.println("List is odd");
     }
 
-    ListNode head;
+    void getMiddleNode(ListNode n){
+        ListNode fastPointer= n, slowPointer= n;
+        while (fastPointer != null && fastPointer.next != null){
+            slowPointer= slowPointer.next;
+            fastPointer= fastPointer.next.next;
+        }
+        System.out.println("Middle Element of Linked List: "+ slowPointer.data);
+    }
 
     public static void main(String[] args) {
         LinkedList<Node> list = new LinkedList<Node>();
@@ -91,6 +81,8 @@ public class LinkedList<N> {
         list.insert(head, 2);
         list.insert(head, 3);
         list.insert(head, 4);
+        list.insert(head, 5);
+        list.insert(head, 5);
        /* list.insert(head, 5);
         list.insert(head, 6);*/
 //        list.insert(head, 7);
@@ -99,12 +91,8 @@ public class LinkedList<N> {
 //        list.reverse(head);
 //        list.print(head);
 //        list.checkEvenOdd(head);
-
-
 //        list.reverse(head);
 //        list.print(head);
-
-        list.pairReverse(head);
+        list.getMiddleNode(head);
     }
-
 }

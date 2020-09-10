@@ -10,11 +10,12 @@ public class ArraysPS { //PS= Problem Solving
             }
             arr[arr.length-1] = temp;
         }
-
-        for (int a:
-             arr) {
+        for (int a: arr) {
             System.out.print(a + " ");
         }
+    }
+    void rotationCount(int[] arr){
+
     }
 
     public static void main(String[] args) {

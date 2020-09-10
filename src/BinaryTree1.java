@@ -6,8 +6,8 @@ public class BinaryTree1 {
     Node root;
 
     boolean checkIdentical(Node node1,Node node2){
-        Stack<Node> s= new Stack<>();
-        Stack<Node> s1= new Stack<>();
+        Stack<Node> s= new Stack<Node>();
+        Stack<Node> s1= new Stack<Node>();
 
         s.push(node1);
         s1.push(node2);

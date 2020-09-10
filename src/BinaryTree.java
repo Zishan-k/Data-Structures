@@ -108,7 +108,7 @@ class BinaryTree {
 
         searchElement(node.right);
         if (flag != 1)
-            System.out.printf("Element not found!");
+            System.out.print("Element not found!");
     }
 
 
@@ -395,7 +395,7 @@ class BinaryTree {
     }
 
 
-    void numberOfleafNodes(Node node) {
+    void numberOfLeafNodes(Node node) {
         Queue<Node> q = new LinkedList<>();
         q.offer(null);
         q.offer(node);
@@ -517,8 +517,8 @@ class BinaryTree {
 
         bt.heightOfTree(bt.root);
 
-//        bt.deepestNode(bt.root);
-        //bt.numberOfleafNodes(bt.root);
+        //bt.deepestNode(bt.root);
+        //bt.numberOfLeafNodes(bt.root);
         //bt.numberOfFullNodes(bt.root);
 
         //bt.numberOfHalfNodes(bt.root);
