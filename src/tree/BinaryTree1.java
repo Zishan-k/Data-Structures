@@ -1,3 +1,5 @@
+package tree;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -5,7 +7,7 @@ import java.util.Stack;
 public class BinaryTree1 {
     Node root;
 
-    boolean checkIdentical(Node node1,Node node2){
+    boolean checkIdentical(Node node1, Node node2){
         Stack<Node> s= new Stack<Node>();
         Stack<Node> s1= new Stack<Node>();
 

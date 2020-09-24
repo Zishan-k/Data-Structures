@@ -1,36 +1,54 @@
-public class LinkedList<N> {
+public class LinkedList {
 
-    void insert(ListNode head, int data) {
-        ListNode listNode1 = head;
-        while (listNode1.next != null) {
-            listNode1 = listNode1.next;
+    static ListNode head;
+
+    void insert(ListNode node, int data) {
+        if(node == null)
+            head= new ListNode(data);
+        else {
+            while (node.next != null) {
+                node = node.next;
+            }
+            node.next = new ListNode(data);
         }
-        listNode1.next = new ListNode(data, null);
     }
 
-    void print(ListNode listNode) {
+    void printList(ListNode listNode) {
+        if(listNode == null)
+            System.out.println("No element");
+        else {
+            System.out.println("Linked List:");
+            while (listNode != null) {
+                System.out.print(listNode.data + " ");
+                listNode = listNode.next;
+            }
+        }
+    }
+
+    void printNode(ListNode listNode) {
         if (listNode == null) {
             return;
         }
         System.out.print(listNode.data);
-        print(listNode.next);
+        printNode(listNode.next);
     }
 
-    ListNode listNode;
     void reverse(ListNode head) {
 
-       ListNode current = head;
-       ListNode prev = null;
-       ListNode next = current.next;
+        ListNode current = head;
+        ListNode prev = null;
+        ListNode next = current.next;
 
-       while (next != null){
-           current.next = prev;
-           prev = current;
-           current = next;
-           next = next.next;
-           }
-       current.next = prev;
-        print(current);
+        while (next != null){
+            current.next = prev;
+            prev = current;
+            current = next;
+            next = next.next;
+        }
+        current.next = prev;
+
+
+        printNode(current);
     }
 
     void pairReverse(ListNode head){
@@ -52,7 +70,7 @@ public class LinkedList<N> {
                 next = current.next;*/
 
             }
-        print(current);
+        printNode(current);
     }
 
     void checkEvenOdd(ListNode n){
@@ -66,6 +84,10 @@ public class LinkedList<N> {
             System.out.println("List is odd");
     }
 
+    void deleteLinkedList(){
+        head= null;
+    }
+
     void getMiddleNode(ListNode n){
         ListNode fastPointer= n, slowPointer= n;
         while (fastPointer != null && fastPointer.next != null){
@@ -75,24 +97,40 @@ public class LinkedList<N> {
         System.out.println("Middle Element of Linked List: "+ slowPointer.data);
     }
 
+    //1->2->3->4
+    void reverseLinkedList(ListNode head){
+        ListNode prev= null, curr= head, next;
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        printList(prev);
+    }
+
     public static void main(String[] args) {
-        LinkedList<Node> list = new LinkedList<Node>();
-        ListNode head = new ListNode(1, null);
-        list.insert(head, 2);
-        list.insert(head, 3);
-        list.insert(head, 4);
-        list.insert(head, 5);
-        list.insert(head, 5);
+        LinkedList list = new LinkedList();
+        list.insert(head,1);
+        list.insert(head,2);
+        list.insert(head,3);
+        list.insert(head,4);
+        list.insert(head,5);
        /* list.insert(head, 5);
         list.insert(head, 6);*/
-//        list.insert(head, 7);
-//        list.print(head);
-//        list.head = head;
-//        list.reverse(head);
-//        list.print(head);
-//        list.checkEvenOdd(head);
-//        list.reverse(head);
-//        list.print(head);
-        list.getMiddleNode(head);
+        //list.insert(head, 7);
+        //list.print(head);
+        //list.head = head;
+        //list.reverse(head);
+        //list.print(head);
+        //list.checkEvenOdd(head);
+        //list.reverse(head);
+        //list.print(head);
+        //list.getMiddleNode(head);
+        //list.deleteLinkedList();
+        //list.pairReverse(list.head);
+        //list.printList();
+        list.reverseLinkedList(head);
+        //list.printList(head);
     }
 }

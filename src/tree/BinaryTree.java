@@ -1,3 +1,5 @@
+package tree;
+
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -5,7 +7,7 @@ import java.util.Stack;
 
 
 class BinaryTree {
-    //private static Node root;
+    //private static tree.Node root;
     Node root;
 
     BinaryTree() {
@@ -42,8 +44,6 @@ class BinaryTree {
         if (node == null) {
             return;
         }
-
-
         inorderTraversal(node.left);
         System.out.print(node.item + " ");
         inorderTraversal(node.right);
@@ -65,8 +65,8 @@ class BinaryTree {
         while (!q.isEmpty()) {
             Node poll = q.poll();
             System.out.print(poll.item + " ");
-            //Node right = poll.right;
-            //Node left = poll.left;
+            //tree.Node right = poll.right;
+            //tree.Node left = poll.left;
 
             if (poll.left != null) {
                 q.add(poll.left);
@@ -78,9 +78,8 @@ class BinaryTree {
         }
     }
 
-    int i = 0;
-
     void calculateSizeOfBinaryTree(Node root) {
+        int i = 0;
         if (root == null) {
             return;
         }
@@ -218,7 +217,7 @@ class BinaryTree {
 
     void insertElement(Node node) {
         int data = 10;
-        //BinaryTree bt = new BinaryTree();
+        //tree.BinaryTree bt = new tree.BinaryTree();
         Stack<Node> s = new Stack<Node>();
         s.push(root);
 
@@ -292,10 +291,8 @@ class BinaryTree {
             Node poll = q.poll();
             //  System.out.print(poll.item + " ");
             stack.push(poll.item);
-            //Node right = poll.right;
-            //Node left = poll.left;
-
-
+            //tree.Node right = poll.right;
+            //tree.Node left = poll.left;
             if (poll.left != null) {
                 q.add(poll.left);
             }
@@ -318,7 +315,6 @@ class BinaryTree {
         while (!queue.isEmpty()) {
 
             Node curr = queue.poll();
-
             if (curr != null) {
                 if (curr.left != null) {
                     queue.offer(curr.left);
@@ -491,7 +487,7 @@ class BinaryTree {
         //Level Order Traversal
         //bt.levelOrderTraversal();
 
-        //Calculate Size Of BinaryTree
+        //Calculate Size Of tree.BinaryTree
         //bt.calculateSizeOfBinaryTree(bt.root);
         //System.out.println("size:"+bt.i);
 
@@ -512,7 +508,7 @@ class BinaryTree {
 
         //bt.heightOfTree(bt.root);
 
-        //Minimum Deepest Node
+        //Minimum Deepest tree.Node
         //System.out.println("Minimum deepest node is :" + bt.minDeepestNode(bt.root));
 
         bt.heightOfTree(bt.root);
