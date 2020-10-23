@@ -1,43 +1,45 @@
+package LinkedList;
+
 public class LinkedList {
 
-    static ListNode head;
+    static ListNodeMain head;
 
-    void insert(ListNode node, int data) {
+    void insert(ListNodeMain node, int data) {
         if(node == null)
-            head= new ListNode(data);
+            head= new ListNodeMain(data);
         else {
             while (node.next != null) {
                 node = node.next;
             }
-            node.next = new ListNode(data);
+            node.next = new ListNodeMain(data);
         }
     }
 
-    void printList(ListNode listNode) {
-        if(listNode == null)
+    void printList(ListNodeMain listNodeMain) {
+        if(listNodeMain == null)
             System.out.println("No element");
         else {
             System.out.println("Linked List:");
-            while (listNode != null) {
-                System.out.print(listNode.data + " ");
-                listNode = listNode.next;
+            while (listNodeMain != null) {
+                System.out.print(listNodeMain.data + " ");
+                listNodeMain = listNodeMain.next;
             }
         }
     }
 
-    void printNode(ListNode listNode) {
-        if (listNode == null) {
+    void printNode(ListNodeMain listNodeMain) {
+        if (listNodeMain == null) {
             return;
         }
-        System.out.print(listNode.data);
-        printNode(listNode.next);
+        System.out.print(listNodeMain.data);
+        printNode(listNodeMain.next);
     }
 
-    void reverse(ListNode head) {
+    void reverse(ListNodeMain head) {
 
-        ListNode current = head;
-        ListNode prev = null;
-        ListNode next = current.next;
+        ListNodeMain current = head;
+        ListNodeMain prev = null;
+        ListNodeMain next = current.next;
 
         while (next != null){
             current.next = prev;
@@ -51,10 +53,10 @@ public class LinkedList {
         printNode(current);
     }
 
-    void pairReverse(ListNode head){
-        ListNode current = head.next;
-        ListNode prev = head;
-        ListNode next = current.next;
+    void pairReverse(ListNodeMain head){
+        ListNodeMain current = head.next;
+        ListNodeMain prev = head;
+        ListNodeMain next = current.next;
 
             /*current.next = next.next;
             next.next = current;*/
@@ -73,7 +75,7 @@ public class LinkedList {
         printNode(current);
     }
 
-    void checkEvenOdd(ListNode n){
+    void checkEvenOdd(ListNodeMain n){
         while (n != null && n.next != null) {
             n = n.next.next;
         }
@@ -88,8 +90,8 @@ public class LinkedList {
         head= null;
     }
 
-    void getMiddleNode(ListNode n){
-        ListNode fastPointer= n, slowPointer= n;
+    void getMiddleNode(ListNodeMain n){
+        ListNodeMain fastPointer= n, slowPointer= n;
         while (fastPointer != null && fastPointer.next != null){
             slowPointer= slowPointer.next;
             fastPointer= fastPointer.next.next;
@@ -98,8 +100,8 @@ public class LinkedList {
     }
 
     //1->2->3->4
-    void reverseLinkedList(ListNode head){
-        ListNode prev= null, curr= head, next;
+    void reverseLinkedList(ListNodeMain head){
+        ListNodeMain prev= null, curr= head, next;
         while (curr != null){
             next = curr.next;
             curr.next = prev;
