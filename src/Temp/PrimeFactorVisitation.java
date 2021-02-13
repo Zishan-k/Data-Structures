@@ -10,10 +10,10 @@ public class PrimeFactorVisitation {
                 int interval = primeFactor.get(j);
                 int k=interval;
                 while(k < states.length) {
-                    if(states[interval] == 0)
-                        states[interval] = 1;
+                    if(states[k-1] == 0)
+                        states[k-1] = 1;
                     else
-                        states[interval] = 0;
+                        states[k-1] = 0;
                     k = k + interval;
                 }
             }

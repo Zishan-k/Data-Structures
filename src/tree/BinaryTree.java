@@ -1,18 +1,11 @@
 package tree;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 
 class BinaryTree {
     //private static tree.Node root;
     Node root;
-
-    BinaryTree() {
-        root = null;
-    }
 
     private int max = 0;
 
@@ -453,17 +446,31 @@ class BinaryTree {
         System.out.println("Number of half nodes are " + count);
     }
 
-    public static void main(String args[]) {
+    Stack<Integer> stack = new Stack<>();
+    private void rootToLeafPath(Node root) {
+        if (root == null) {
+            return;
+        }
+        stack.push(root.item);
+        if (root.left == null && root.right == null) {
+            System.out.println(stack);
+        }
+        rootToLeafPath(root.left);
+        rootToLeafPath(root.right);
+        stack.pop();
+    }
 
+
+    public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
-        bt.root = new Node(1);
-        bt.root.left = new Node(2);
-        bt.root.right = new Node(3);
-        bt.root.left.left = new Node(4);
-        bt.root.right.right = new Node(5);
-        bt.root.right.right.right = new Node(6);
+        Node root = new Node(10);
+        root.left = new Node(8);
+        root.right = new Node(2);
+        root.left.left = new Node(3);
+        root.left.right = new Node(5);
+        root.right.left = new Node(2);
 
-        //bt.inorderTraversal(bt.root);
+        bt.inorderTraversal(root);
         //bt.postOrderTraversal(bt.root);
         //bt.preOrderTraversal(bt.root);
 
@@ -491,7 +498,7 @@ class BinaryTree {
         //bt.calculateSizeOfBinaryTree(bt.root);
         //System.out.println("size:"+bt.i);
 
-        bt.preorderWithIteration(bt.root);
+        //bt.preorderWithIteration(bt.root);
 
         //Insert an element
         //bt.insertElement(bt.root);
@@ -511,7 +518,8 @@ class BinaryTree {
         //Minimum Deepest tree.Node
         //System.out.println("Minimum deepest node is :" + bt.minDeepestNode(bt.root));
 
-        bt.heightOfTree(bt.root);
+        //bt.heightOfTree(bt.root);
+        //bt.rootToLeafPath(bt.root);
 
         //bt.deepestNode(bt.root);
         //bt.numberOfLeafNodes(bt.root);

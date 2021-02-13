@@ -1,12 +1,14 @@
 package LinkedList;
 
+import TestLinkedList.ListNode;
+
 public class LinkedList {
 
     static ListNodeMain head;
 
     void insert(ListNodeMain node, int data) {
-        if(node == null)
-            head= new ListNodeMain(data);
+        if (node == null)
+            head = new ListNodeMain(data);
         else {
             while (node.next != null) {
                 node = node.next;
@@ -16,7 +18,7 @@ public class LinkedList {
     }
 
     void printList(ListNodeMain listNodeMain) {
-        if(listNodeMain == null)
+        if (listNodeMain == null)
             System.out.println("No element");
         else {
             System.out.println("Linked List:");
@@ -41,7 +43,7 @@ public class LinkedList {
         ListNodeMain prev = null;
         ListNodeMain next = current.next;
 
-        while (next != null){
+        while (next != null) {
             current.next = prev;
             prev = current;
             current = next;
@@ -53,56 +55,55 @@ public class LinkedList {
         printNode(current);
     }
 
-    void pairReverse(ListNodeMain head){
+    void pairReverse(ListNodeMain head) {
         ListNodeMain current = head.next;
         ListNodeMain prev = head;
         ListNodeMain next = current.next;
 
             /*current.next = next.next;
             next.next = current;*/
-            while(current.next != null) {
+        while (current.next != null) {
 
-                current.data = current.next.data;
-                current.next.data = current.data;
-                current = current.next.next;
+            current.data = current.next.data;
+            current.next.data = current.data;
+            current = current.next.next;
 
                 /*current.next = prev;
                 prev.next = next;
                 current = prev.next;
                 next = current.next;*/
 
-            }
+        }
         printNode(current);
     }
 
-    void checkEvenOdd(ListNodeMain n){
+    void checkEvenOdd(ListNodeMain n) {
         while (n != null && n.next != null) {
             n = n.next.next;
         }
-        if (n == null){
+        if (n == null) {
             System.out.println("List is even");
-        }
-        else
+        } else
             System.out.println("List is odd");
     }
 
-    void deleteLinkedList(){
-        head= null;
+    void deleteLinkedList() {
+        head = null;
     }
 
-    void getMiddleNode(ListNodeMain n){
-        ListNodeMain fastPointer= n, slowPointer= n;
-        while (fastPointer != null && fastPointer.next != null){
-            slowPointer= slowPointer.next;
-            fastPointer= fastPointer.next.next;
+    void getMiddleNode(ListNodeMain n) {
+        ListNodeMain fastPointer = n, slowPointer = n;
+        while (fastPointer != null && fastPointer.next != null) {
+            slowPointer = slowPointer.next;
+            fastPointer = fastPointer.next.next;
         }
-        System.out.println("Middle Element of Linked List: "+ slowPointer.data);
+        System.out.println("Middle Element of Linked List: " + slowPointer.data);
     }
 
     //1->2->3->4
-    void reverseLinkedList(ListNodeMain head){
-        ListNodeMain prev= null, curr= head, next;
-        while (curr != null){
+    void reverseLinkedList(ListNodeMain head) {
+        ListNodeMain prev = null, curr = head, next;
+        while (curr != null) {
             next = curr.next;
             curr.next = prev;
             prev = curr;
@@ -111,13 +112,39 @@ public class LinkedList {
         printList(prev);
     }
 
+
+    int getNthFromLast(ListNodeMain head, int n) {
+        // Your code here
+        ListNodeMain start = head;
+        int count = 0;
+        while (start != null) {
+            count++;
+            start = start.next;
+        }
+        if (n > count)
+            return -1;
+        else if (n == count)
+            return head.data;
+        else {
+            start = head;
+            for (int i = 1; i <= count - n; i++) {
+                start = start.next;
+            }
+            return start.data;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.insert(head,1);
-        list.insert(head,2);
-        list.insert(head,3);
-        list.insert(head,4);
-        list.insert(head,5);
+        list.insert(head, 1);
+        list.insert(head, 2);
+        list.insert(head, 3);
+        list.insert(head, 4);
+        list.insert(head, 5);
+        list.insert(head, 6);
+        list.insert(head, 7);
+        list.insert(head, 8);
+        list.insert(head, 9);
        /* list.insert(head, 5);
         list.insert(head, 6);*/
         //list.insert(head, 7);
@@ -132,7 +159,8 @@ public class LinkedList {
         //list.deleteLinkedList();
         //list.pairReverse(list.head);
         //list.printList();
-        list.reverseLinkedList(head);
+        //list.reverseLinkedList(head);
         //list.printList(head);
+        System.out.println(list.getNthFromLast(head, 2));
     }
 }
