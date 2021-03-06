@@ -5,7 +5,7 @@ import java.util.*;
 
 class BinaryTree {
     //private static tree.Node root;
-    Node root;
+    static Node root;
 
     private int max = 0;
 
@@ -237,9 +237,9 @@ class BinaryTree {
 
     void spiralLevelOrderTraversal(Node node) {
 
-        Queue<Node> q = new PriorityQueue<Node>();
+        Queue<Node> q = new PriorityQueue<>();
         int flag = 0;
-        q.add(root);
+        q.add(node);
         while (!q.isEmpty()) {
 
             Node poll = q.poll();
@@ -463,14 +463,15 @@ class BinaryTree {
 
     public static void main(String[] args) {
         BinaryTree bt = new BinaryTree();
-        Node root = new Node(10);
-        root.left = new Node(8);
-        root.right = new Node(2);
-        root.left.left = new Node(3);
-        root.left.right = new Node(5);
-        root.right.left = new Node(2);
+        root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(7);
+        root.left.right = new Node(6);
+        root.right.left = new Node(5);
+        root.right.right = new Node(4);
 
-        bt.inorderTraversal(root);
+        bt.spiralLevelOrderTraversal(root);
         //bt.postOrderTraversal(bt.root);
         //bt.preOrderTraversal(bt.root);
 
@@ -527,6 +528,15 @@ class BinaryTree {
 
         //bt.numberOfHalfNodes(bt.root);
         //bt.numberOfHalfNodes(bt.root);
+        /*
+                1020%10 == 0
+                digit = 5
+
+                1025
+
+                504
+
+        * */
     }
 }
 

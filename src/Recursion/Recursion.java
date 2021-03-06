@@ -27,7 +27,12 @@ public class Recursion {
         }
         return power(a, b-1) * a;
     }
+
     static int calls = 0;
+    /**
+     4^6 = (4^2)3
+     4^7 = 4 * (4^2)^3
+     * */
     static int fastPower(int a, int b){
         calls++;
         if(b == 0){
@@ -38,9 +43,20 @@ public class Recursion {
         }
         return a * fastPower(a, b-1);
     }
+
+
+    /**
+     1,1,2,3,5,8,13
+     base case: n = 1
+     Relation: fiboTill(5) = fiboTill(5-1) + fiboTill(5-2)
+     * */
+    static int fibonacciTill(int n){
+        if(n <= 1){
+            return n;
+        }
+        return fibonacciTill(n-1) + fibonacciTill(n-2);
+    }
     public static void main(String[] args) {
-        System.out.println(fastPower(3,10000) + "\ncalls: "+ calls);
-        calls=0;
-        System.out.println(power(3,10000) + "\ncalls: "+ calls);
+        System.out.println(fibonacciTill(9));
     }
 }
