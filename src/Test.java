@@ -1,15 +1,27 @@
-import java.util.List;
-import java.util.ListIterator;
-import java.util.Set;
+import java.util.*;
 
 public class Test{
     public static void main(String[] args) {
-        noOfTriplets(new int[]{1,2,3}, 6);
-        String s = "helle";
-        char[] charArr =s.toCharArray();
-        StringBuilder sb = new StringBuilder("jjj");
-        System.out.println(charArr[0]);
+        char c = '9';
+        System.out.println(c - '0');
+    }
 
+    public static boolean countPairs(int[] A){
+        Map<Integer, Integer> hashMap = new HashMap<>();
+
+        for (int i = 0; i < A.length; i++) {
+            if(hashMap.containsKey(A[i]))
+            hashMap.put(A[i], hashMap.get(A[i]) + 1);
+            else
+                hashMap.put(A[i], 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry :
+                hashMap.entrySet()) {
+            if (entry.getValue() != 2)
+                return false;
+        }
+        return true;
     }
 
     String firstAlphabet(String S) {

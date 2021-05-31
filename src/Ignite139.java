@@ -13,8 +13,7 @@ public class Ignite139 {
                     (attendanceVsCount.get(i) + 1) :
                     1);
         }
-        for (int j :
-                attendanceVsCount.keySet()) {
+        for (int j : attendanceVsCount.keySet()) {
             int temp = attendanceVsCount.get(j);
             if (attendanceVsCount.get(j) > 1) {
                 studentsWhoMarkedProxy.add(j);

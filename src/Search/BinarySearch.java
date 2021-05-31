@@ -24,19 +24,20 @@ public class BinarySearch {
         int first = 0, last = arr.length, middle = (first + last) / 2;
 
         while (true) {
-            if (arr[middle] != 1) {
+            if (arr[middle] != 1 && middle != arr.length-1) {
                 first = middle + 1;
-            } else if (arr[middle] == 1 && arr[middle - 1] == 0) {
+            } else if (arr[middle] == 1 && arr[middle - 1] != 1) {
                 return middle;
             } else if (arr[middle] == 1 && arr[middle - 1] == 1) {
                 last = middle - 1;
-            }
+            } else
+                return  -1;
             middle = (first + last) / 2;
         }
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{0, 0, 0, 1, 1, 1, 1};
+        int[] arr = new int[]{0, 0, 0, 0};
         System.out.println(findFirstOne(arr));
     }
 }
