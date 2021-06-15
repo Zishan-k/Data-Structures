@@ -299,6 +299,7 @@ class BinaryTree {
         }
     }
 
+
     void heightOfTree(Node node) {
 
         Queue<Node> queue = new LinkedList<Node>();
@@ -307,16 +308,11 @@ class BinaryTree {
         int count = 0;
         while (!queue.isEmpty()) {
 
+            
             Node curr = queue.poll();
             if (curr != null) {
-                if (curr.left != null) {
-                    queue.offer(curr.left);
-                }
-
-                if (curr.right != null) {
-                    queue.offer(curr.right);
-                }
-
+                if (curr.left != null) queue.offer(curr.left);
+                if (curr.right != null) queue.offer(curr.right);
             } else {
                 count++;
                 queue.offer(null);
@@ -447,6 +443,7 @@ class BinaryTree {
     }
 
     Stack<Integer> stack = new Stack<>();
+
     private void rootToLeafPath(Node root) {
         if (root == null) {
             return;
@@ -537,6 +534,7 @@ class BinaryTree {
                 504
 
         * */
+
     }
 }
 

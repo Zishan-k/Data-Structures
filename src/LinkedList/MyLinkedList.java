@@ -1,12 +1,16 @@
 package LinkedList;
 
-import TestLinkedList.ListNode;
 
-public class LinkedList {
+
+import org.w3c.dom.Node;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class MyLinkedList {
 
     static ListNodeMain head;
-
-    void insert(ListNodeMain node, int data) {
+    static void insert(ListNodeMain node, int data) {
         if (node == null)
             head = new ListNodeMain(data);
         else {
@@ -135,16 +139,15 @@ public class LinkedList {
     }
 
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        list.insert(head, 1);
-        list.insert(head, 2);
-        list.insert(head, 3);
-        list.insert(head, 4);
-        list.insert(head, 5);
-        list.insert(head, 6);
-        list.insert(head, 7);
-        list.insert(head, 8);
-        list.insert(head, 9);
+        insert(head, 1);
+        insert(head, 2);
+        insert(head, 3);
+        insert(head, 4);
+        insert(head, 5);
+        insert(head, 6);
+        insert(head, 7);
+        insert(head, 8);
+        insert(head, 9);
        /* list.insert(head, 5);
         list.insert(head, 6);*/
         //list.insert(head, 7);
@@ -161,6 +164,6 @@ public class LinkedList {
         //list.printList();
         //list.reverseLinkedList(head);
         //list.printList(head);
-        System.out.println(list.getNthFromLast(head, 2));
+        //System.out.println(list.getNthFromLast(head, 2));
     }
 }

@@ -2,8 +2,37 @@ import java.util.*;
 
 public class Test{
     public static void main(String[] args) {
-        char c = '9';
-        System.out.println(c - '0');
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int k = s.nextInt();
+        int count = 0;
+        while (n-- > 0) {
+            int x = s.nextInt();
+            if (x % k == 0)
+                count++;
+        }
+        System.out.println(count);
+    }
+
+    static String getBinary(Integer i){
+        if(i == 1) return i.toString();
+        StringBuilder str = new StringBuilder();
+        while(i > 0){
+            Integer temp = i % 2;
+            i = i / 2;
+            str.append(temp);
+        }
+        return str.toString();
+    }
+
+    static String reverseOf(String str){
+        char[] cArr = str.toCharArray();
+        for(int i = 0, j = str.length() - 1; i != j; i++, j--){
+            char temp = cArr[i];
+            cArr[i] = cArr[j];
+            cArr[j] = temp;
+        }
+        return Arrays.toString(cArr);
     }
 
     public static boolean countPairs(int[] A){

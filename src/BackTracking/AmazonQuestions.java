@@ -1,6 +1,6 @@
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+package BackTracking;
+
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -13,15 +13,87 @@ public class AmazonQuestions {
         //System.out.println(findPairWithProduct(new int[]{1,2,3,4,4,6,7}, 29));
         //System.out.println(replaceZeros(102));
         //System.out.println(getNumberOfOccurrences(new int[]{1, 2, 3, 3, 3, 3, 4, 6, 7, 8}, 3, 11));
-        System.out.println(clockAngle(3, 30));
+        //System.out.println(clockAngle(3, 30));
+        //System.out.println(getEquilibriumIndex(new int[]{-7, 1, 5, 2, -4, 3, 0}));
+        //System.out.println(binaryToDecimal(1010));
+        //System.out.println(getBinaryOfDecimal(10));
+        //System.out.println(getNoOfBitToConvertAtoB(10, 20));
+        //System.out.println(findNoOccurringOddTimesIn(new int[]{1,1,3,3,4,6,5,6,6,4}));
+        //System.out.println(fact(5));
+        //System.out.println(fibo(3));
+    }
+    private static boolean doesSumExists(int[] arr, int k) {
+        Set<Integer> set = new HashSet<>();
+        for (int j : arr) {
+            if (!set.isEmpty() && set.contains(k - j)) return true;
+            else set.add(j);
+        }
+        return false;
+    }
+
+    private static int findNoOccurringOddTimesIn(int[] arr) {
+        Map<Integer, Integer> valVsCount = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            if (!valVsCount.containsKey(arr[i]))
+                valVsCount.put(arr[i], 1);
+            else {
+                valVsCount.put(arr[i], valVsCount.get(arr[i]) + 1);
+                if (valVsCount.get(arr[i]) % 2 == 1) return arr[i];
+            }
+        }
+        return -1;
+    }
+
+    private static int getNoOfBitToConvertAtoB(int a, int b) {
+        String binaryA = getBinaryOfDecimal(a), binaryB = getBinaryOfDecimal(b);
+        int count = 0;
+        for (int i = 0; i < binaryA.length(); i++) {
+            if (binaryA.charAt(i) != binaryB.charAt(i))
+                count++;
+        }
+        return count;
+    }
+
+
+    private static String getBinaryOfDecimal(int n) {
+        StringBuilder str = new StringBuilder();
+        while (n > 0) {
+            int temp = n % 2;
+            str.append(temp);
+            n /= 2;
+        }
+        return str.reverse().toString();
+    }
+
+    private static int binaryToDecimal(int n) {
+        int ans = 0;
+        for (int i = 0; n > 0; i++) {
+            int temp = n % 10;
+            if (temp != 0) ans = (int) (ans + Math.pow(2, i));
+            n = n / 10;
+        }
+        return ans;
+    }
+
+    private static int getEquilibriumIndex(int[] arr) {
+        int rightSum = 0, leftSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            rightSum += arr[i];
+        }
+        for (int i = 0; i < arr.length; i++) {
+            rightSum -= arr[i];
+            if (rightSum == leftSum) return i;
+            leftSum += arr[i];
+        }
+        return -1;
     }
 
     private static int clockAngle(int hour, int minute) {
         //getting hour hand resting angle - minute hand resting angle
-        int ans = Math.abs((hour * 30) - ((minute/5) * 30));
+        int ans = Math.abs((hour * 30) - ((minute / 5) * 30));
 
         //removing extra angle caused by minute hand
-        return Math.abs(ans - (minute/2));
+        return Math.abs(ans - (minute / 2));
     }
 
     private static int getNumberOfOccurrences(int[] arr, int x, int n) {
