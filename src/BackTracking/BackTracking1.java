@@ -5,21 +5,21 @@ import java.util.Arrays;
 public class BackTracking1 {
     /*Input : arr[] = 2, 4, 6, 8
             x = 8
-Output : [2, 2, 2, 2]
+Output : [2, 2, 2, 2] 1->2->3->4->5
          [2, 2, 4]
          [2, 6]
          [4, 4]
          [8]*/
-    public static void combinationalSum(int[] arr, int sum, int[] ansArr, int ansIndex) {
+    public static void combinationSum(int[] arr, int sum, int[] ansArr, int ansIndex) {
         if (Arrays.stream(ansArr).sum() == sum) {
             System.out.println(Arrays.toString(ansArr));
             return;
         }
         if (ansIndex >= arr.length) return;
-        for (int i = 0; i < arr.length; i++) {
-            if(ansArr[ansIndex-1 < 0?0:ansIndex-1] <= arr[i]) {
-                ansArr[ansIndex] = arr[i];
-                combinationalSum(arr, sum, ansArr, ansIndex+1);
+        for (int j : arr) {
+            if (ansArr[ansIndex - 1 < 0 ? 0 : ansIndex - 1] <= j) {
+                ansArr[ansIndex] = j;
+                combinationSum(arr, sum, ansArr, ansIndex + 1);
                 ansArr[ansIndex] = 0;
             }
         }
@@ -67,13 +67,13 @@ Output : [2, 2, 2, 2]
     }
 
     public static void main(String[] args) {
-        /*int[] arr = {2, 4, 6, 8};
-        combinationalSum(arr, 8, new int[arr.length], 0);*/
+        int[] arr = {2, 4, 6, 8};
+        combinationSum(arr, 8, new int[arr.length], 0);
 
-        int [][] mat = {{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+        /*int [][] mat = {{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
         { 1, 1, 0, 1, 1, 0, 1, 1, 0, 1 },
         { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }};
         boolean[][] visited = new boolean[3][10];
-        longestPath(mat, 3, 10, 0, 0, visited, "");
+        longestPath(mat, 3, 10, 0, 0, visited, "");*/
     }
 }

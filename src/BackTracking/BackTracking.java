@@ -240,7 +240,7 @@ public class BackTracking {
                             findStringsHelper(chars, str, i + x[k], j + y[k], index + 1, n, visited);
                         }
                     }
-                    ans.remove(ans.size()-1);
+                    ans.remove(ans.size() - 1);
                     visited[i][j] = false;
                     //todo
                 }
@@ -249,7 +249,7 @@ public class BackTracking {
     }
 
     private static boolean isItSafeForString(boolean[][] visited, int row, int col, int size, char[][] chars, String str, int index) {
-        return row >= 0 && col >= 0 && row < size && col < size && !visited[row][col] && chars[row][col] == str.charAt(index == str.length()? index-1:index);
+        return row >= 0 && col >= 0 && row < size && col < size && !visited[row][col] && chars[row][col] == str.charAt(index == str.length() ? index - 1 : index);
     }
 
     private static void displayString(char[][] chars, boolean[][] visited, int n) {
@@ -261,7 +261,8 @@ public class BackTracking {
             System.out.println();
         }
     }
-//------------------------------------------------------------------------------
+
+    //------------------------------------------------------------------------------
     public static void main(String[] args) {
         char[][] chars = new char[][]{{'G', 'I', 'Z'},
                 {'U', 'E', 'K'},

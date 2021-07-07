@@ -1,5 +1,7 @@
 package BackTracking;
 
+import java.util.Scanner;
+
 public class Recursion2 {
     public static void main(String[] args) {
         /*There are N people who want to go to a party.
@@ -14,7 +16,7 @@ public class Recursion2 {
         //System.out.println(countWays(3));
 
         /*Given two numbers a and b, calculate a^b recursively.*/
-        //System.out.println(calculatePower(2,4));
+        //System.out.println(calculatePower(2, 4));
         //System.out.println(calculatePowerOptimized(2, 4));
 
         /*Given a value of n, print pattern of n rows recursively.
@@ -40,32 +42,44 @@ public class Recursion2 {
         //printSubsets(arr1, 0, arr1.length, "");
 
         //Given a value n, how many binary strings of length n are there without any consecutive 1's?
-        //todo
-        noConsecutiveOnes(3, "");
+        //noConsecutiveOnes(3, "");
 
 
         //Given an array, check if it is sorted or not?
         //int[] arr = new int[]{1,2,5 ,4};
         //System.out.println(checkSort(arr, 0, arr.length));
+
+        //Print all possible strings of length k that can be formed from a set of n characters
+        //printPossibleStrings(new char[]{'a','b'}, "", 3);
     }
 
-    private static void noConsecutiveOnes(int n, String osf) {
-        if(osf.length() == n){
-            System.out.println(osf);
+    private static void printPossibleStrings(char[] chars, String s, int k) {
+        if (s.length() == k) {
+            System.out.println(s);
             return;
         }
 
+        for (int j = 0; j < chars.length; j++) {
+            printPossibleStrings(chars, s + chars[j], k);
+        }
+    }
+
+    private static void noConsecutiveOnes(int n, String osf) {
+        if (osf.length() == n) {
+            System.out.println(osf);
+            return;
+        }
         noConsecutiveOnes(n, osf + "0");
-        if(!osf.isEmpty() && osf.charAt(osf.length() - 1) != '1')
+        if (!osf.isEmpty() && osf.charAt(osf.length() - 1) != '1')
             noConsecutiveOnes(n, osf + "1");
-        else if(osf.isEmpty())
-            noConsecutiveOnes(n, osf+"1");
+        else if (osf.isEmpty())
+            noConsecutiveOnes(n, osf + "1");
     }
 
     private static boolean checkSort(int[] arr, int i, int length) {
-        if(i == length - 1) return true;
+        if (i == length - 1) return true;
 
-        if(arr[i] > arr[i+1]) return false;
+        if (arr[i] > arr[i + 1]) return false;
 
         return checkSort(arr, i + 1, length);
 
@@ -88,8 +102,8 @@ public class Recursion2 {
         if (n > 0) recursivePattern2(n - 1);
         printPattern(n);
         System.out.println();
-
     }
+
 
     private static void printPattern(int n) {
         if (n == 0) return;
@@ -100,10 +114,10 @@ public class Recursion2 {
     }
 
     private static void printPatternRecursively1(int n, int i) {
-        if(n == 0) {
+        if (n == 0) {
             return;
         }
-        if(i != n) {
+        if (i != n) {
             System.out.print("* ");
             printPatternRecursively1(n, i + 1);
         } else {
@@ -113,6 +127,7 @@ public class Recursion2 {
     }
 
     static int i = 0;
+
     private static void printPatternRecursively(int n) {
         if (n == 0) {
             System.out.println();

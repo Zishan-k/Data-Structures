@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class RecursionProblems {
     private static void binarySeq(int n, int i, String osf) {
-        if (i >= (2 * n)) {
+        if (i >= n) {
             System.out.println(osf);
             return;
         }
@@ -157,7 +157,7 @@ public class RecursionProblems {
     }
 
     public static void main(String[] args) {
-        permutationsOpt("abc", 0);
+        //permutationsOpt("abc", 0);
         /*MyLinkedListMain head = new MyLinkedListMain();
         head.insert(head, 1);
         head.insert(head, 2);
@@ -189,9 +189,10 @@ public class RecursionProblems {
         //stringOfDigits("123", 0, "");
         //System.out.println(checkConsonants("geeksforgeeks portal", 0, 0));
         //System.out.println(firstUppercaseLetterIn("abcDe", 0));
-        //powerSetOf("abc", 0, "");
+        powerSetOf("abc", 0, "");
         //System.out.println(findMax(new int[]{22,12,44,29,45}, 0, 0));
         //binarySeq(2, 0 , "");
+
         /*Input:
 set[] = {'a', 'b'}, k = 3
 

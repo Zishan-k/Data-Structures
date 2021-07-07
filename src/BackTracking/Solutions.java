@@ -11,7 +11,7 @@ public class Solutions {
         for (int i = 0; i < arr.length; i++) {
             actualSum = (arr[i] * (arr[i]+1))/2;
             curSum += arr[i];
-            if(actualSum != curSum) return arr[i] - 1;
+            if(actualSum != curSum) return actualSum-curSum;
         }
         return -1;
     }

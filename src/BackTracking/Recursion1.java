@@ -1,6 +1,9 @@
 package BackTracking;
 
-public class Recursion {
+import java.util.List;
+
+public class Recursion1 {
+
     public static void main(String[] args) {
         //printNaturalNos(10);
         //printNaturalNosInDecOrder(5);
@@ -12,8 +15,6 @@ public class Recursion {
         //System.out.println(noOfBinaryStrWithNoConsecutiveOnes(3));
 
     }
-
-
 
     private static int noOfBinaryStrWithNoConsecutiveOnes(int n) {
         if(n == 0) return 2;
